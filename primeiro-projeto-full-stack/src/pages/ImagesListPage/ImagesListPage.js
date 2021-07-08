@@ -1,14 +1,14 @@
 import React from "react"
 import {MainContainer} from '../../constants/mainContainer'
 
-const ErrorPage = () => {
+const ImagesListPage = () => {
 
 
     return (
         <MainContainer>
-            <h1>ErrorPage</h1>
+            <h1>ImagesListPage</h1>
         </MainContainer>
     )
 }
 
-export default ErrorPage
+export default ImagesListPage
