@@ -1,12 +1,13 @@
 import React from "react"
+import {MainContainer} from '../../constants/mainContainer'
 
 const ImageDetailsPage = () => {
 
 
     return (
-        <div>
+        <MainContainer>
             <h1>ImageDetailsPage</h1>
-        </div>
+        </MainContainer>
     )
 }
 
