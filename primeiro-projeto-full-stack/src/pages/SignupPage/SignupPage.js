@@ -1,4 +1,5 @@
 import React from "react"
+import axios from "axios"
 import { useHistory } from "react-router-dom";
 import useForm from '../../hooks/useForm'
 import {MainContainer} from '../../constants/mainContainer'
@@ -19,8 +20,29 @@ const SignUpPage = () => {
 
     const handleClick = (event) => {
         event.preventDefault()
+        signup()
         clear()
     }
+
+const signup = async() => {
+    
+    const body = {
+        name: form.name,
+        email: form.email,
+        nickname: form.nickname,
+        password: form.password
+    }
+
+    try {
+        const token = await axios.post(`https://backend-fullstack-labenu.herokuapp.com/user/signup`, body)
+        window.localStorage.setItem('token', token.data.token)
+        history.push("/")
+    } catch (error) {
+        alert(error.message)
+        console.log(body)
+    }
+
+}
 
     return (
         <MainContainer>
@@ -30,8 +52,8 @@ const SignUpPage = () => {
                 <TextField
                     required
                     label="Nome de usuário"
-                    name="username"
-                    value={form.username}
+                    name="name"
+                    value={form.name}
                     onChange={onChange}
                     type="text"
                 
