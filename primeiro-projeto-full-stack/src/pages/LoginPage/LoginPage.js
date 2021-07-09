@@ -2,7 +2,10 @@ import React from "react"
 import useUnProtectedPage from '../../hooks/useUnprotectedPage'
 import useForm from '../../hooks/useForm'
 import { useHistory } from "react-router"
-import {MainContainer} from '../../constants/mainContainer'
+import { MainContainer } from '../../constants/mainContainer'
+import { Title, InitialForm, DivInputs } from "./styled"
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 
 const initialForm = {
     email: "",
@@ -21,30 +24,30 @@ const LoginPage = () => {
 
     return (
         <MainContainer>
-            <h1>Login</h1>
-            <form onSubmit={handleClick}>
-                <input
-                    required
-                    placeholder="E-mail"
-                    name="email"
-                    value={form.email}
-                    onChange={onChange}
-                    type="text"
-                />
-                <input
-                    required
-                    placeholder="senha"
-                    name="password"
-                    value={form.password}
-                    onChange={onChange}
-                    type="password"
-                />
-                <div>
-                    <button>
-                        Fazer login
-                    </button>
-                </div>
-            </form>
+            <Title>Login</Title>
+            <InitialForm onSubmit={handleClick}>
+                <DivInputs>
+                    <TextField
+                        required
+                        label="E-mail"
+                        name="email"
+                        value={form.email}
+                        onChange={onChange}
+                        type="text"
+                    />
+                    <TextField
+                        required
+                        label="senha"
+                        name="password"
+                        value={form.password}
+                        onChange={onChange}
+                        type="password"
+                    />
+                </DivInputs>
+                <Button type="submit" variant="contained" color="primary">
+                    Fazer login
+                </Button>
+            </InitialForm>
         </MainContainer>
     )
 }
