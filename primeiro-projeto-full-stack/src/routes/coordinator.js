@@ -7,11 +7,11 @@ export const goToSignUpPage = (history) => {
 }
 
 export const goToCreateImagePage = (history) => {
-    history.push("/")
+    history.push("/criar")
 }
 
 export const goToImagesListPage = (history) => {
-    history.push("/imagens")
+    history.push("/")
 }
 
 export const goToImageDetailsPage = (history, id) => {

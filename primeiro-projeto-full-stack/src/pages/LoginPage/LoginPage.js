@@ -6,6 +6,7 @@ import { MainContainer } from '../../constants/mainContainer'
 import { Title, InitialForm, DivInputs } from "./styled"
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import axios from "axios"
 
 const initialForm = {
     email: "",
@@ -13,14 +14,32 @@ const initialForm = {
 }
 
 const LoginPage = () => {
-    // useUnProtectedPage()
+    useUnProtectedPage()
+    
     const [form, onChange, clear] = useForm(initialForm);
     const history = useHistory()
 
     const handleClick = (event) => {
         event.preventDefault();
+        login()
         clear();
     };
+
+    const login = async() => {
+
+        const body = {
+            email: form.email,
+            password: form.password
+        }
+
+        try {
+            const token = await axios.post(`https://backend-fullstack-labenu.herokuapp.com/user/login`, body)
+            window.localStorage.setItem('token', token.data.token)
+        history.push("/")
+        } catch (error) {
+            alert(error.message)
+        }
+    }
 
     return (
         <MainContainer>

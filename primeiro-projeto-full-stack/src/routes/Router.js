@@ -17,10 +17,10 @@ const Router = () => {
                 <Route exact path="/signup">
                     <SignUpPage />
                 </Route>
-                <Route exact path="/">
+                <Route exact path="/criar">
                     <CreateImagePage />
                 </Route>
-                <Route exact path="/imagens">
+                <Route exact path="/">
                     <ImagesListPage />
                 </Route>
                 <Route exact path="/detalhes/:id">

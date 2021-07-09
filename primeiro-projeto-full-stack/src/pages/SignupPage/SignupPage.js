@@ -38,8 +38,7 @@ const signup = async() => {
         window.localStorage.setItem('token', token.data.token)
         history.push("/")
     } catch (error) {
-        alert(error.message)
-        console.log(body)
+        alert(error.message)    
     }
 
 }
