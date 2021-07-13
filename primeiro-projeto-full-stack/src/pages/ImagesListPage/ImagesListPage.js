@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom"
 import { MainContainer } from '../../constants/mainContainer'
 import useProtectedPage from "../../hooks/useProtectedPage"
 import Button from '@material-ui/core/Button'
-import { goToCreateImagePage, goToLoginPage } from "../../routes/coordinator"
+import { goToCreateImagePage, goToImagesListPage, goToLoginPage } from "../../routes/coordinator"
 import ImageCard from "../../components/ImageCard/ImageCard";
-import { Main, Header, Title, DivButton } from "./styled"
+import { Main, Header, Title, DivButton, DivCreateImage } from "./styled"
 
 const ImagesListPage = () => {
     useProtectedPage()
@@ -53,13 +53,14 @@ const ImagesListPage = () => {
     return (
         <MainContainer>
             <Header>
-                <Title>Galeria de imagens</Title>
+                <Title onClick={() => goToImagesListPage(history)} >Imagens</Title>
                 <DivButton>
-            <Button type="submit" variant="contained" color="primary" onClick={() => goToCreateImagePage(history)}> criar imagem </Button>
                     <Button type="submit" variant="contained" color="primary" onClick={() => logout()}> logout </Button>
                 </DivButton>
             </Header>
-
+            <DivCreateImage>
+            <Button type="submit" variant="contained" color="primary" onClick={() => goToCreateImagePage(history)}> adicionar uma nova imagem </Button>
+            </DivCreateImage>
             <Main>
                 {imagesList}
             </Main>

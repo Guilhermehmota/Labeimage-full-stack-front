@@ -2,15 +2,16 @@ import React from "react"
 import axios from "axios"
 import { useHistory } from "react-router-dom";
 import useForm from '../../hooks/useForm'
-import {MainContainer} from '../../constants/mainContainer'
+import { MainContainer } from '../../constants/mainContainer'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import { Title, InitialForm, DivInputs } from "./styled"
+import { Title, Header, InitialForm, DivInputs, SignUpTitle, DivButton } from "./styled"
+import { goToLoginPage } from "../../routes/coordinator";
 
 const initialForm = {
     name: "",
     email: "",
-    nickname:"",
+    nickname: "",
     password: "",
 }
 
@@ -24,68 +25,74 @@ const SignUpPage = () => {
         clear()
     }
 
-const signup = async() => {
-    
-    const body = {
-        name: form.name,
-        email: form.email,
-        nickname: form.nickname,
-        password: form.password
-    }
+    const signup = async () => {
 
-    try {
-        const token = await axios.post(`https://backend-fullstack-labenu.herokuapp.com/user/signup`, body)
-        window.localStorage.setItem('token', token.data.token)
-        history.push("/")
-    } catch (error) {
-        alert(error.message)    
-    }
+        const body = {
+            name: form.name,
+            email: form.email,
+            nickname: form.nickname,
+            password: form.password
+        }
 
-}
+        try {
+            const token = await axios.post(`https://backend-fullstack-labenu.herokuapp.com/user/signup`, body)
+            window.localStorage.setItem('token', token.data.token)
+            history.push("/")
+        } catch (error) {
+            alert(error.message)
+        }
+
+    }
 
     return (
         <MainContainer>
-            <Title>Cadastro</Title>
+            <Header>
+                <Title onClick={() => goToLoginPage(history)}>Labeimage</Title>
+                <DivButton>
+                    <Button type="submit" variant="contained" color="primary" onClick={() => goToLoginPage(history)}> Login</Button>
+                </DivButton>
+            </Header>
+            <SignUpTitle>Cadastro</SignUpTitle>
             <InitialForm onSubmit={handleClick}>
-            <DivInputs>
-                <TextField
-                    required
-                    label="Nome de usuário"
-                    name="name"
-                    value={form.name}
-                    onChange={onChange}
-                    type="text"
-                
-                />
-                <TextField
-                    required
-                    label="E-mail"
-                    name="email"
-                    value={form.email}
-                    onChange={onChange}
-                    type="text"
-                
-                />
-                <TextField
-                    required
-                    label="Apelido"
-                    name="nickname"
-                    value={form.nickname}
-                    onChange={onChange}
-                    type="text"
-                
-                />
-                <TextField
-                    required
-                    label="senha"
-                    name="password"
-                    value={form.password}
-                    onChange={onChange}
-                    type="password"
-                />
-                
+                <DivInputs>
+                    <TextField
+                        required
+                        label="Nome de usuário"
+                        name="name"
+                        value={form.name}
+                        onChange={onChange}
+                        type="text"
+
+                    />
+                    <TextField
+                        required
+                        label="E-mail"
+                        name="email"
+                        value={form.email}
+                        onChange={onChange}
+                        type="text"
+
+                    />
+                    <TextField
+                        required
+                        label="Apelido"
+                        name="nickname"
+                        value={form.nickname}
+                        onChange={onChange}
+                        type="text"
+
+                    />
+                    <TextField
+                        required
+                        label="senha"
+                        name="password"
+                        value={form.password}
+                        onChange={onChange}
+                        type="password"
+                    />
+
                 </DivInputs>
-                    <Button type="submit" variant="contained" color="primary"> Cadastrar </Button>
+                <Button type="submit" variant="contained" color="primary"> Cadastrar </Button>
             </InitialForm>
         </MainContainer>
     )
