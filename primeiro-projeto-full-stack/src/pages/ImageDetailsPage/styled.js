@@ -16,8 +16,36 @@ export const Header = styled.header`
     align-items: center;
     `
 
+export const DivDetails = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+`
+
+export const Image = styled.img`
+    width: 60%;
+    height: 55%;
+`
+
 export const DivButton = styled.div`
     margin-right: 20px;
     display: flex;
     gap: 10px;
+`
+export const DivInfos = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+`
+export const Colection = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+`
+export const Tags = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
 `

@@ -53,7 +53,7 @@ const ImagesListPage = () => {
     return (
         <MainContainer>
             <Header>
-                <Title onClick={() => goToImagesListPage(history)} >Imagens</Title>
+                <Title onClick={() => goToImagesListPage(history)} >Labeimage</Title>
                 <DivButton>
                     <Button type="submit" variant="contained" color="primary" onClick={() => logout()}> logout </Button>
                 </DivButton>

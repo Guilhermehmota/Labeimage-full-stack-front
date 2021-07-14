@@ -34,10 +34,10 @@ justify-content: space-between;
 `
 
 export const DivInputs = styled.div`
-display: flex;
-flex-direction: column;
-width: 350px;
-margin: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin: 20px;
 `
 export const DivButton = styled.div`
     margin-right: 20px;
