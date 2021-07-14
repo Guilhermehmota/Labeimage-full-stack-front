@@ -22,6 +22,12 @@ export const Header = styled.header`
 export const Title = styled.h2`
     letter-spacing: 2px;
     margin-left: 20px;
+    :hover {
+        cursor:pointer;
+    }
+`
+export const DivCreateImage = styled.div`
+    margin: 20px;
 `
 export const DivButton = styled.div`
     margin-right: 20px;

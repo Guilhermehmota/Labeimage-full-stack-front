@@ -3,10 +3,11 @@ import useUnProtectedPage from '../../hooks/useUnprotectedPage'
 import useForm from '../../hooks/useForm'
 import { useHistory } from "react-router"
 import { MainContainer } from '../../constants/mainContainer'
-import { Title, InitialForm, DivInputs } from "./styled"
+import { Title, InitialForm, DivInputs, Header, DivButton, LoginTitle } from "./styled"
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import axios from "axios"
+import {goToLoginPage, goToSignUpPage}  from "../../routes/coordinator"
 
 const initialForm = {
     email: "",
@@ -15,7 +16,7 @@ const initialForm = {
 
 const LoginPage = () => {
     useUnProtectedPage()
-    
+
     const [form, onChange, clear] = useForm(initialForm);
     const history = useHistory()
 
@@ -25,7 +26,7 @@ const LoginPage = () => {
         clear();
     };
 
-    const login = async() => {
+    const login = async () => {
 
         const body = {
             email: form.email,
@@ -35,7 +36,7 @@ const LoginPage = () => {
         try {
             const token = await axios.post(`https://backend-fullstack-labenu.herokuapp.com/user/login`, body)
             window.localStorage.setItem('token', token.data.token)
-        history.push("/")
+            history.push("/")
         } catch (error) {
             alert(error.message)
         }
@@ -43,7 +44,13 @@ const LoginPage = () => {
 
     return (
         <MainContainer>
-            <Title>Login</Title>
+            <Header>
+            <Title onClick={() => goToLoginPage(history)}> Labeimage </Title>
+                <DivButton>
+                    <Button type="submit" variant="contained" color="primary" onClick={() => goToSignUpPage(history)}> Cadastre-se</Button>
+                </DivButton>
+            </Header>
+            <LoginTitle>Login</LoginTitle>
             <InitialForm onSubmit={handleClick}>
                 <DivInputs>
                     <TextField
