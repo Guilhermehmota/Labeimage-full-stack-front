@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { primaryColor, secondaryColor } from "../../constants/colors";
+import { secondaryColor } from "../../constants/colors";
 
 export const Main = styled.div`
     width: 80vw;
@@ -22,6 +22,7 @@ export const Header = styled.header`
 export const Title = styled.h2`
     letter-spacing: 2px;
     margin-left: 20px;
+    font-family: roboto;
     :hover {
         cursor:pointer;
     }
