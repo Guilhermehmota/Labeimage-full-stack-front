@@ -4,6 +4,7 @@ import { primaryColor, secondaryColor } from "../../constants/colors"
 export const Title = styled.h2`
     letter-spacing: 2px;
     margin-left: 20px;
+    font-family: roboto;
     :hover {
         cursor:pointer;
     }
@@ -22,6 +23,7 @@ export const SignUpTitle = styled.h1`
     justify-content: center;
     padding: 10px;
     letter-spacing: 2px;
+    font-family: roboto;
 `
 
 export const InitialForm = styled.form`

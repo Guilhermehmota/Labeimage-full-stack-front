@@ -4,6 +4,7 @@ import { primaryColor, secondaryColor } from "../../constants/colors"
 export const Title = styled.h2`
     letter-spacing: 2px;
     margin-left: 20px;
+    font-family: roboto;
     :hover {
         cursor:pointer;
     }
@@ -22,11 +23,15 @@ export const DivDetails = styled.div`
     align-items: center;
     width: 100%;
     height: 100vh;
+    font-family: roboto;
 `
 
 export const Image = styled.img`
-    width: 60%;
-    height: 55%;
+    width: 70%;
+    height: 65%;
+    @media(max-width: 1024px){
+        width: 90%;
+    }
 `
 
 export const DivButton = styled.div`
@@ -38,14 +43,17 @@ export const DivInfos = styled.div`
     display: flex;
     justify-content: space-between;
     width: 60%;
+    font-family: roboto;
 `
 export const Colection = styled.div`
     display: flex;
     justify-content: space-between;
     width: 60%;
+    font-family: roboto;
 `
 export const Tags = styled.div`
     display: flex;
     justify-content: space-between;
     width: 60%;
+    font-family: roboto;
 `
