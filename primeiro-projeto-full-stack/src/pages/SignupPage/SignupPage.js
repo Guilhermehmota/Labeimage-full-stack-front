@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { Title, Header, InitialForm, DivInputs, SignUpTitle, DivButton } from "./styled"
 import { goToLoginPage } from "../../routes/coordinator";
+import { BASE_URL } from "../../constants/url";
 
 const initialForm = {
     name: "",
@@ -35,7 +36,7 @@ const SignUpPage = () => {
         }
 
         try {
-            const token = await axios.post(`https://backend-fullstack-labenu.herokuapp.com/user/signup`, body)
+            const token = await axios.post(`${BASE_URL}/users/signup`, body)
             window.localStorage.setItem('token', token.data.token)
             history.push("/")
         } catch (error) {
