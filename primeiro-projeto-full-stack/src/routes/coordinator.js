@@ -17,3 +17,7 @@ export const goToImagesListPage = (history) => {
 export const goToImageDetailsPage = (history, id) => {
     history.push(`/detalhes/${id}`)
 }
+
+export const goBack = (history) => {
+    history.goBack()
+}

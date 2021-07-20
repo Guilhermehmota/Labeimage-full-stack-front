@@ -7,6 +7,8 @@ import TextField from '@material-ui/core/TextField'
 import { useHistory } from "react-router-dom"
 import useForm from "../../hooks/useForm"
 import { DivInputs, Header, InitialForm, Title, DivButton, CreateImageTitle } from "./styled"
+import axios from "axios"
+import { BASE_URL } from "../../constants/url"
 
 const initialForm = {
     subtitle: "",
@@ -25,7 +27,7 @@ const CreateImagePage = () => {
 
     const handleClick = (event) => {
         event.preventDefault()
-        // createImage()
+        createImage()
         clear()
     }
 
@@ -34,20 +36,28 @@ const CreateImagePage = () => {
         goToLoginPage(history)
     }
 
-    // const createImage = async() => {
+    const createImage = async () => {
 
-    //     const body = {
-    //         subtitle: form.subtitle,
-    //         file: form.file,
-    //         tags: form.tags,
-    //         collection: form.collection,
-    //     }
-    //     try {
+        const body = {
+            subtitle: form.subtitle,
+            file: form.file,
+            tags: form.tags,
+            collection: form.collection,
+        }
 
-    //     } catch (error) {
-    //         alert(error.message)
-    //     }
-    // }
+        try {
+            const image = await axios.post(`${BASE_URL}/images/create`, body, {
+                headers: {
+                    Authorization: window.localStorage.getItem("token")
+                }
+            })
+            alert("Success")
+            history.push("/")
+
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
 
     return (
         <MainContainer>
@@ -86,7 +96,7 @@ const CreateImagePage = () => {
                         name="tags"
                         value={form.tags}
                         onChange={onChange}
-                        type="password"
+                        type="text"
                     />
                     <TextField
                         required

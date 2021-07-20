@@ -7,7 +7,8 @@ import { Title, InitialForm, DivInputs, Header, DivButton, LoginTitle } from "./
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import axios from "axios"
-import {goToLoginPage, goToSignUpPage}  from "../../routes/coordinator"
+import { goToLoginPage, goToSignUpPage } from "../../routes/coordinator"
+import { BASE_URL } from "../../constants/url"
 
 const initialForm = {
     email: "",
@@ -34,8 +35,8 @@ const LoginPage = () => {
         }
 
         try {
-            const token = await axios.post(`https://backend-fullstack-labenu.herokuapp.com/user/login`, body)
-            window.localStorage.setItem('token', token.data.token)
+            const token = await axios.post(`${BASE_URL}/users/login`, body)
+            window.localStorage.setItem('token', token.data.accessToken)
             history.push("/")
         } catch (error) {
             alert(error.message)
@@ -45,7 +46,7 @@ const LoginPage = () => {
     return (
         <MainContainer>
             <Header>
-            <Title onClick={() => goToLoginPage(history)}> Labeimage </Title>
+                <Title onClick={() => goToLoginPage(history)}> Labeimage </Title>
                 <DivButton>
                     <Button type="submit" variant="contained" color="primary" onClick={() => goToSignUpPage(history)}> Cadastre-se</Button>
                 </DivButton>
