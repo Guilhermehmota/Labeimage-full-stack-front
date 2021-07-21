@@ -7,7 +7,7 @@
 Aplicação desenvolvida em React que permite criar uma imagem a partir do fornecimento de um título, arquivo, tags e coleção e a exibe em um feed junto com outras imagens criadas por outros usuários. 
 
 ## Link do surge
-https://labeimage-fullstack.surge.sh/
+labeimage-guilherme.surge.sh
 
 ## Funcionalidades
 
