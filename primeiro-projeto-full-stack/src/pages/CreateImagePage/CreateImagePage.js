@@ -55,7 +55,7 @@ const CreateImagePage = () => {
             history.push("/")
 
         } catch (error) {
-            console.log(error.message)
+            alert(error.response.data.message)
         }
     }
 

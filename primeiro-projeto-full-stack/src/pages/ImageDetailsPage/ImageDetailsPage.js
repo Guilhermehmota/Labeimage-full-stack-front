@@ -45,7 +45,7 @@ const ImageDetailsPage = () => {
             setImage(image.data.image)
             setAuthor(image.data.image.author)
         } catch (error) {
-            alert(error.message)
+            alert(error.response.data.message)
         }
     }
 
@@ -59,7 +59,7 @@ const ImageDetailsPage = () => {
             })
             setAuthorName(authorData.data.name)
         } catch (error) {
-            console.log(error.message)
+            alert(error.response.data.message)
         }
     }
 

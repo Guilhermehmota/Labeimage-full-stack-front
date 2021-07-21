@@ -8,6 +8,7 @@ import { goToCreateImagePage, goToImagesListPage, goToLoginPage } from "../../ro
 import ImageCard from "../../components/ImageCard/ImageCard";
 import { Main, Header, Title, DivButton, DivCreateImage } from "./styled"
 import { BASE_URL } from "../../constants/url"
+import { CircularProgress } from "@material-ui/core"
 
 const ImagesListPage = () => {
     
@@ -35,7 +36,7 @@ const ImagesListPage = () => {
             setImages(images.data.images)
 
         } catch (error) {
-            console.log(error.message)
+            alert(error.response.data.message)
         }
     }
 
@@ -63,7 +64,7 @@ const ImagesListPage = () => {
                 <Button type="submit" variant="contained" color="primary" onClick={() => goToCreateImagePage(history)}> adicionar uma nova imagem </Button>
             </DivCreateImage>
             <Main>
-                {imagesList}
+                {images[0]? imagesList: <CircularProgress color="primary"/>}
             </Main>
         </MainContainer>
     )
