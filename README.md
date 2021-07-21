@@ -1,4 +1,4 @@
-# Labeimage
+# Labeimage - Backend
 
 ### Meu primeiro projeto Full Stack!!
 
@@ -29,6 +29,13 @@ https://labeimagefullstack.surge.sh/login
 - Styled-components - Bibilioteca que permite a utilização de CSS para estilização de componentes React;
 - Material UI - Biblioteca de componentes React para personalização e um desenvolvimento ágil e fácil.
 
+## API (base url)
+
+https://labeimage-guilherme.herokuapp.com
+
+## Backend 
+
+https://github.com/Guilhermehmota/backend-primeiro-projeto-full-stack
 
 
 
