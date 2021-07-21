@@ -1,10 +1,8 @@
 import React from "react";
 import { Main, Image, ImageTitle, DivTitle } from "./styled";
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 import { goToImageDetailsPage } from "../../routes/coordinator";
-
-
 
 const ImageCard = (props) => {
 

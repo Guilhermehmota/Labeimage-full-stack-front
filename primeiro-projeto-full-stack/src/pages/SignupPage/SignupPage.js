@@ -37,12 +37,11 @@ const SignUpPage = () => {
 
         try {
             const token = await axios.post(`${BASE_URL}/users/signup`, body)
-            window.localStorage.setItem('token', token.data.token)
+            window.localStorage.setItem('token', token.data.accessToken)
             history.push("/")
         } catch (error) {
             alert(error.message)
         }
-
     }
 
     return (
