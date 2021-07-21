@@ -10,12 +10,12 @@ import { Main, Header, Title, DivButton, DivCreateImage } from "./styled"
 import { BASE_URL } from "../../constants/url"
 
 const ImagesListPage = () => {
+    
     useProtectedPage()
-
     const history = useHistory()
-
+    
     const [images, setImages] = useState([])
-
+    
     useEffect(() => {
         getAllImages()
     }, [])
