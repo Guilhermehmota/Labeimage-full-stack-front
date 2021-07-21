@@ -39,7 +39,7 @@ const LoginPage = () => {
             window.localStorage.setItem('token', token.data.accessToken)
             history.push("/")
         } catch (error) {
-            alert(error.message)
+            alert(error.response.data.message)
         }
     }
 
