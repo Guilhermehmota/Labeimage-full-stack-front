@@ -13,12 +13,14 @@ import { CircularProgress } from "@material-ui/core"
 const ImagesListPage = () => {
     
     useProtectedPage()
+
     const history = useHistory()
     
     const [images, setImages] = useState([])
     
     useEffect(() => {
-        getAllImages()
+        window.localStorage.getItem("token") 
+        && getAllImages()
     }, [])
 
     const logout = () => {
