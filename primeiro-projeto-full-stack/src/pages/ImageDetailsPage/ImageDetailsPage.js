@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button'
 import { goToImagesListPage, goToLoginPage } from "../../routes/coordinator"
 import { Header, Title, DivButton, DivDetails, Image, DivInfos, Colection, Tags } from "./styled"
 import { BASE_URL } from "../../constants/url"
+import useProtectedPage from "../../hooks/useProtectedPage"
 
 const ImageDetailsPage = () => {
 
@@ -19,9 +20,12 @@ const ImageDetailsPage = () => {
 
     const [authorName, setAuthorName] = useState("")
 
+    useProtectedPage()
+
 
     useEffect(() => {
-        getImageById()
+        window.localStorage.getItem("token") 
+        && getImageById()
     }, [])
 
     useEffect(() => {
